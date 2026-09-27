@@ -27,6 +27,9 @@ if (!basePath) {
   );
 }
 
+const API_ROUTE_PREFIX = '/api';
+const apiProxyTarget = process.env.API_PROXY_TARGET;
+
 export default defineConfig({
   base: basePath,
   plugins: [
@@ -72,6 +75,9 @@ export default defineConfig({
     fs: {
       strict: true,
     },
+    ...(apiProxyTarget
+      ? { proxy: { [API_ROUTE_PREFIX]: { target: apiProxyTarget, changeOrigin: true } } }
+      : {}),
   },
   preview: {
     port,

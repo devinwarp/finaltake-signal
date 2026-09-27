@@ -2,7 +2,7 @@ import { ArrowRight, ArrowUpRight, BookOpenText, CircleHelp, ClipboardCopy, Exte
 import { Link, useLocation } from 'wouter';
 import { useEffect, useState, type FormEvent, type ReactNode } from 'react';
 import type { SignalNeed, SignalQueryMetrics, SignalSampleWindow, SignalVideo } from '@workspace/api-client-react';
-import { exampleInput, useSignalWorkspace } from './use-signal-workspace';
+import { exampleInput, examplePresets, useSignalWorkspace, type ExampleClaimPreset } from './use-signal-workspace';
 import { buildBriefShareText, canShowConceptPrototype, canUnlockBrief, isExactExampleSearch } from './signal-logic';
 import { CreatorBriefDocument } from './creator-brief';
 
@@ -69,9 +69,9 @@ export function Shell({ children }: { children: ReactNode }) {
   return <div className="app-shell min-h-[100dvh]">
     <header className="site-header no-print">
       <div className="header-inner">
-        <Link href="/" className="brand-lockup" data-testid="link-home"><span className="brand-icon"><span /></span><span>FinalTake <i>Signal</i></span></Link>
+        <Link href="/" className="brand-lockup" data-testid="link-home"><span className="brand-icon"><span /></span><span className="brand-text"><span>Brand <i>Take</i></span><span className="brand-tagline">Brief from proof, not a guess</span></span></Link>
         <span className="header-center">CREATOR INTELLIGENCE / STRATEGY DESK</span>
-        <div className="header-right"><span className="powered">Powered by <strong>Oriane</strong></span><span className="header-index">FT—S / 001</span></div>
+        <div className="header-right"><span className="powered">Powered by <strong>Oriane</strong></span><span className="header-index">BT / 001</span></div>
       </div>
     </header>
     <div className="workspace">
@@ -82,7 +82,7 @@ export function Shell({ children }: { children: ReactNode }) {
       </aside>
       <main className="main-content">{children}</main>
     </div>
-    <footer className="mobile-footer no-print"><span>FINALTAKE SIGNAL</span><span>Powered by Oriane</span></footer>
+    <footer className="mobile-footer no-print"><span>BRAND TAKE</span><span>Powered by Oriane</span></footer>
   </div>;
 }
 export function PageIntro({ number: index, label, title, description, action }: { number: string; label: string; title: ReactNode; description: string; action?: ReactNode }) {
@@ -140,7 +140,7 @@ export function SearchPage() {
     <section className="search-panel paper fade-up">
       <div className="panel-head"><div><span className="eyebrow">SEARCH PARAMETERS</span><h2 className="serif">Choose the category and context</h2><p className="panel-subtitle">Use the result to decide whether a recurring need is clear enough to brief—and which original posts the team should review.</p></div><div className="panel-head-right"><span>01 — 04</span><Search size={18} strokeWidth={1.4} /></div></div>
        <form onSubmit={e => { e.preventDefault(); run(); }}><div className="search-fields">{field('brand', 'Your brand', '01')}{field('competitor', 'Competitor / Brand B', '02')}{field('control', 'Category control', '03')}{field('category', 'Category context', '04')}</div>
-         <div className="search-actions"><div className="search-helpers"><button type="button" className="reveal-button" aria-pressed={reveal} onClick={() => setReveal(!reveal)} data-testid="button-reveal-competitor">{reveal ? <EyeOff size={16} /> : <Eye size={16} />}{reveal ? 'Conceal competitor' : 'Privately reveal competitor'}</button><button type="button" className="reveal-button" onClick={() => setInput({ ...exampleInput })} data-testid="button-load-example">Load sunscreen example</button></div><button type="submit" className="btn-primary run-button" disabled={isPending || Object.values(input).some(v => !v.trim())} data-testid="button-run-search">{isPending ? 'Searching…' : result ? 'Run new search' : 'Run search'} <ArrowRight size={17} /></button></div>
+         <div className="search-actions"><div className="search-helpers"><button type="button" className="reveal-button" aria-pressed={reveal} onClick={() => setReveal(!reveal)} data-testid="button-reveal-competitor">{reveal ? <EyeOff size={16} /> : <Eye size={16} />}{reveal ? 'Conceal competitor' : 'Privately reveal competitor'}</button><div className="example-buttons"><span>LOAD EXAMPLE</span>{examplePresets.map((preset, i) => <button key={preset.id} type="button" className="reveal-button" onClick={() => setInput({ ...preset.input })} data-testid={i === 0 ? 'button-load-example' : `button-load-example-${preset.id}`}>{preset.label}</button>)}</div></div><button type="submit" className="btn-primary run-button" disabled={isPending || Object.values(input).some(v => !v.trim())} data-testid="button-run-search">{isPending ? 'Searching…' : result ? 'Run new search' : 'Run search'} <ArrowRight size={17} /></button></div>
       </form>
       <div className="search-foot"><span>SEARCH SPECIFICATION</span><span>TikTok + Instagram · last 90 days · exact spoken words + caption match · max 200 / query</span></div>
     </section>
@@ -227,6 +227,11 @@ export function BriefPage() {
   }, [stored?.at, productName, claimText, claimSource, selectedClaims, customClaims]);
   const need = result?.needs.find(n => n.id === selectedNeedId) || result?.needs.find(n => n.id === result.heroNeedId) || result?.needs[0];
   const exampleSearch = !!stored && isExactExampleSearch(stored.input, exampleInput);
+  const claimPresets = stored ? examplePresets.find(preset => preset.claimPresets && isExactExampleSearch(stored.input, preset.input))?.claimPresets || [] : [];
+  function loadClaimPreset(preset: ExampleClaimPreset) {
+    if (preset.product !== productName) { setCustomClaims([]); setSelectedClaims([]); }
+    setProductName(preset.product); setClaimText(preset.claim); setClaimSource(preset.source); setClaimError('');
+  }
   const validClaims = exampleSearch ? (config?.claims.filter(c => c.verified) || []) : customClaims;
   const chosen = validClaims.filter(c => selectedClaims.includes(c.claim));
   const adClaims = chosen.filter(c => c.useInAd);
@@ -241,7 +246,7 @@ export function BriefPage() {
     heroNeedId: result?.heroNeedId,
     selectedNeedId: need?.id,
   });
-  const guardrails = exampleSearch ? (config?.neverClaim || []) : ['Do not present user-approved claims as independently verified by FinalTake', 'Do not quote a creator as an endorsement', 'Do not claim superiority to a named competitor without substantiation', 'Do not make unsupported clinical, safety, or performance promises'];
+  const guardrails = exampleSearch ? (config?.neverClaim || []) : ['Do not present user-approved claims as independently verified by Brand Take', 'Do not quote a creator as an endorsement', 'Do not claim superiority to a named competitor without substantiation', 'Do not make unsupported clinical, safety, or performance promises'];
   const videoSrc = `${import.meta.env.BASE_URL}hero-ad.mp4`;
   function toggleClaim(claim: string) { setSelectedClaims(v => v.includes(claim) ? v.filter(c => c !== claim) : [...v, claim]); }
   async function copyBriefText() {
@@ -269,7 +274,7 @@ export function BriefPage() {
       claims: chosen.map(claim => ({
         claim: claim.claim,
         source: claim.source,
-        approvalLabel: exampleSearch ? 'brand-verified example' : 'owner-approved, not independently verified by FinalTake',
+        approvalLabel: exampleSearch ? 'brand-verified example' : 'owner-approved, not independently verified by Brand Take',
       })),
       guardrails,
       evidence: evidence.map(video => ({
@@ -301,10 +306,10 @@ export function BriefPage() {
       <SourceNotice />
       <SampleProvenance />
       <div className="brief-layout">
-          <aside className="claim-panel no-print"><span className="eyebrow">01 / CLAIM CONTROL</span><h2 className="serif">Choose what can be said.</h2><p>{exampleSearch ? 'Example-only register. Select at least one verified claim; brief-only claims are excluded from the test ad.' : 'Custom run. Supply your own product and owner-approved claim. FinalTake does not independently verify these claims.'}</p>
+          <aside className="claim-panel no-print"><span className="eyebrow">01 / CLAIM CONTROL</span><h2 className="serif">Choose what can be said.</h2><p>{exampleSearch ? 'Example-only register. Select at least one verified claim; brief-only claims are excluded from the test ad.' : 'Custom run. Supply your own product and owner-approved claim. Brand Take does not independently verify these claims.'}</p>
            {exampleSearch ? (configLoading ? <div className="claim-skeleton"><div className="skeleton" /><div className="skeleton" /><div className="skeleton" /></div> : configError ? <div className="claim-error"><strong>Example claim register unavailable.</strong><p>The brief remains locked until the verified example register loads.</p><button className="btn-outline" onClick={retryConfig} data-testid="button-retry-config"><RotateCcw size={14} /> Retry</button></div> : <>
              <div className="product-label"><span>DEMO PRODUCT / BRAND-SOURCED REGISTER</span><strong>{config?.product}</strong></div><div className="claims">{config?.claims.map((item, i) => <label key={`${item.claim}-${i}`} className={`claim-row ${!item.verified ? 'unverified' : ''}`}><input type="checkbox" disabled={!item.verified} checked={selectedClaims.includes(item.claim)} onChange={() => toggleClaim(item.claim)} data-testid={`checkbox-claim-${i}`} /><span className="claim-check" /><span className="claim-copy"><strong>{item.claim}</strong><small>{item.verified ? (item.useInAd ? 'BRAND-VERIFIED / BRIEF + AD' : 'BRAND-VERIFIED / BRIEF ONLY') : 'UNVERIFIED / LOCKED'}</small><a href={item.source} target="_blank" rel="noopener noreferrer" onClick={e => e.stopPropagation()} data-testid={`link-claim-source-${i}`}>View official claim source <ArrowUpRight size={11} /></a></span></label>)}</div>
-           </>) : <div className="custom-register"><div className="owner-notice"><ShieldCheck size={17} /><span>USER-APPROVED CLAIMS<br /><small>Not independently verified by FinalTake. No demo claims are used.</small></span></div><form onSubmit={addCustomClaim} className="custom-claim-form">
+           </>) : <div className="custom-register"><div className="owner-notice"><ShieldCheck size={17} /><span>USER-APPROVED CLAIMS<br /><small>Not independently verified by Brand Take. No demo claims are used.</small></span></div>{claimPresets.length > 0 && <div className="example-buttons claim-presets"><span>LOAD EXAMPLE CLAIM</span>{claimPresets.map(preset => <button key={preset.id} type="button" className="reveal-button" onClick={() => loadClaimPreset(preset)} data-testid={`button-load-claim-${preset.id}`}>{preset.claim}</button>)}</div>}<form onSubmit={addCustomClaim} className="custom-claim-form">
              <label>Product name<input className="field" value={productName} onChange={e => { setProductName(e.target.value); setCustomClaims([]); setSelectedClaims([]); }} maxLength={150} required placeholder="Your product" data-testid="input-product-name" /></label>
              <label>Claim text<input className="field" value={claimText} onChange={e => setClaimText(e.target.value)} maxLength={300} required placeholder="Exact approved product claim" data-testid="input-custom-claim" /></label>
              <label>Official claim source URL<input className="field" type="url" value={claimSource} onChange={e => setClaimSource(e.target.value)} required placeholder="https://brand.example/product" data-testid="input-claim-source" /></label>

@@ -93,7 +93,7 @@ export function CreatorBriefDocument({
             <small>{source === 'backup' ? (claim.useInAd ? 'BRAND-VERIFIED EXAMPLE / BRIEF + TEST AD' : 'BRAND-VERIFIED EXAMPLE / BRIEF ONLY') : 'OWNER-APPROVED / NOT INDEPENDENTLY VERIFIED BY FINALTAKE'}</small>
             <a href={claim.source} target="_blank" rel="noopener noreferrer">Official claim source <span aria-hidden="true">↗</span></a>
           </li>)}</ul> : <p>No product claims are approved for this brief. Do not make product claims until the owner approves them.</p>}
-          <p className="brief-caveat">{source === 'backup' ? 'These are brand-sourced example statements, not creator testimony.' : 'Custom claims were supplied and approved by the brand or agency owner; FinalTake has not independently verified them.'} Use only in a manner consistent with the cited source and actual experience.</p>
+          <p className="brief-caveat">{source === 'backup' ? 'These are brand-sourced example statements, not creator testimony.' : 'Custom claims were supplied and approved by the brand or agency owner; Brand Take has not independently verified them.'} Use only in a manner consistent with the cited source and actual experience.</p>
         </div></section>
       </div>
       <aside className="brief-margin">
