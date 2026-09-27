@@ -1,0 +1,2 @@
+- [Oriane REST authentication](oriane-rest-auth.md) — public API spec omits its auth scheme; verify the search header with a real credential before claiming live requests work.
+- [GitHub connector publishing](github-connector-publishing.md) — connector OAuth authorizes API writes, not local git push; empty repos need an initial contents commit before Git Data uploads.
