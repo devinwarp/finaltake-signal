@@ -1,0 +1,40 @@
+{
+ "label": "In heat, sweat forces constant reapplying, and runs sunscreen into your eyes",
+ "hero_videos": 88,
+ "hero_creators": 75,
+ "total_views": 9057755,
+ "median_views": 21100,
+ "sunscreen_videos_total": 952,
+ "brand": {
+  "sunscreen_videos": 142,
+  "hero": 11,
+  "pct": 7.7,
+  "creators": 9
+ },
+ "competitor": {
+  "sunscreen_videos": 189,
+  "hero": 12,
+  "pct": 6.3,
+  "creators": 11
+ },
+ "control": {
+  "sunscreen_videos": 192,
+  "hero": 17,
+  "pct": 8.9,
+  "creators": 15
+ },
+ "category": {
+  "sunscreen_videos": 462,
+  "hero": 56,
+  "pct": 12.1,
+  "creators": 48
+ },
+ "unbiased": {
+  "note": "excludes the heat/sweat-selected category pull",
+  "sunscreen_videos": 507,
+  "hero": 36,
+  "pct": 7.1,
+  "creators": 31
+ },
+ "sampling": "Creators with 5k+ followers on TikTok/Instagram, 27 Jun-27 Sep 2026, paid/partner posts removed, only videos whose transcript mentions sunscreen/SPF/sunblock"
+}

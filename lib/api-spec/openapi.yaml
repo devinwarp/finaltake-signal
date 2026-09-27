@@ -10,6 +10,8 @@ servers:
 tags:
   - name: health
     description: Health operations
+  - name: signal
+    description: FinalTake Signal search and strategy analysis
 paths:
   /healthz:
     get:
@@ -24,6 +26,42 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/HealthStatus"
+  /signal/config:
+    get:
+      operationId: getSignalConfig
+      tags: [signal]
+      summary: Read verified product claims and search defaults
+      responses:
+        "200":
+          description: Product claims and default search configuration
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/SignalConfig"
+  /signal/search:
+    post:
+      operationId: searchSignal
+      tags: [signal]
+      summary: Search Oriane and analyze creator-video evidence
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/SignalSearchInput"
+      responses:
+        "200":
+          description: Video evidence and category need analysis
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/SignalSearchResult"
+        "502":
+          description: Search and cache fallback both failed
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ApiError"
 components:
   schemas:
     HealthStatus:
@@ -33,4 +71,235 @@ components:
           type: string
       required:
         - status
+    ApiError:
+      type: object
+      properties:
+        error:
+          type: string
+      required: [error]
+    SignalSearchInput:
+      type: object
+      properties:
+        brand:
+          type: string
+          minLength: 1
+          maxLength: 120
+        competitor:
+          type: string
+          minLength: 1
+          maxLength: 120
+        control:
+          type: string
+          minLength: 1
+          maxLength: 120
+        category:
+          type: string
+          minLength: 1
+          maxLength: 120
+      required: [brand, competitor, control, category]
+    SignalClaim:
+      type: object
+      properties:
+        claim:
+          type: string
+        source:
+          type: string
+          format: uri
+        verified:
+          type: boolean
+        useInAd:
+          type: boolean
+      required: [claim, source, verified, useInAd]
+    SignalConfig:
+      type: object
+      properties:
+        product:
+          type: string
+        claims:
+          type: array
+          items:
+            $ref: "#/components/schemas/SignalClaim"
+        neverClaim:
+          type: array
+          items:
+            type: string
+      required: [product, claims, neverClaim]
+    SignalQueryId:
+      type: string
+      enum: [brand, competitor, control, heat]
+    SignalPlatform:
+      type: string
+      enum: [tiktok, instagram, other]
+    SignalQueryMetrics:
+      type: object
+      properties:
+        id:
+          $ref: "#/components/schemas/SignalQueryId"
+        label:
+          type: string
+        query:
+          type: string
+        fetchedVideos:
+          type: integer
+          minimum: 0
+        relevantVideos:
+          type: integer
+          minimum: 0
+        needVideos:
+          type: integer
+          minimum: 0
+        needCreators:
+          type: integer
+          minimum: 0
+        needVideoShare:
+          type: number
+          minimum: 0
+          maximum: 1
+        needCreatorShare:
+          type: number
+          minimum: 0
+          maximum: 1
+      required:
+        - id
+        - label
+        - query
+        - fetchedVideos
+        - relevantVideos
+        - needVideos
+        - needCreators
+        - needVideoShare
+        - needCreatorShare
+    SignalVideo:
+      type: object
+      properties:
+        id:
+          type: string
+        url:
+          type: string
+          format: uri
+        platform:
+          $ref: "#/components/schemas/SignalPlatform"
+        sourceQueries:
+          type: array
+          items:
+            $ref: "#/components/schemas/SignalQueryId"
+        handle:
+          type: string
+        followers:
+          type: ["integer", "null"]
+          minimum: 0
+        date:
+          type: ["string", "null"]
+          format: date-time
+        views:
+          type: ["integer", "null"]
+          minimum: 0
+        language:
+          type: ["string", "null"]
+        caption:
+          type: string
+        transcript:
+          type: string
+        evidenceSentence:
+          type: ["string", "null"]
+        evidenceTime:
+          type: ["string", "null"]
+        needIds:
+          type: array
+          items:
+            type: string
+      required:
+        - id
+        - url
+        - platform
+        - sourceQueries
+        - handle
+        - followers
+        - date
+        - views
+        - language
+        - caption
+        - transcript
+        - evidenceSentence
+        - evidenceTime
+        - needIds
+    SignalNeed:
+      type: object
+      properties:
+        id:
+          type: string
+        label:
+          type: string
+        complaintLines:
+          type: array
+          items:
+            type: string
+        videoCount:
+          type: integer
+          minimum: 0
+        creatorCount:
+          type: integer
+          minimum: 0
+        totalViews:
+          type: integer
+          minimum: 0
+        medianViews:
+          type: number
+          minimum: 0
+        queryMetrics:
+          type: array
+          items:
+            $ref: "#/components/schemas/SignalQueryMetrics"
+      required:
+        - id
+        - label
+        - complaintLines
+        - videoCount
+        - creatorCount
+        - totalViews
+        - medianViews
+        - queryMetrics
+    SignalSearchResult:
+      type: object
+      properties:
+        source:
+          type: string
+          enum: [live, backup]
+        fallbackReason:
+          type: ["string", "null"]
+        queries:
+          type: array
+          items:
+            $ref: "#/components/schemas/SignalQueryMetrics"
+        videos:
+          type: array
+          items:
+            $ref: "#/components/schemas/SignalVideo"
+        needs:
+          type: array
+          items:
+            $ref: "#/components/schemas/SignalNeed"
+        heroNeedId:
+          type: ["string", "null"]
+        totalRelevantVideos:
+          type: integer
+          minimum: 0
+        heatNeedVideoShare:
+          type: number
+          minimum: 0
+          maximum: 1
+        ordinaryNeedVideoShare:
+          type: number
+          minimum: 0
+          maximum: 1
+      required:
+        - source
+        - fallbackReason
+        - queries
+        - videos
+        - needs
+        - heroNeedId
+        - totalRelevantVideos
+        - heatNeedVideoShare
+        - ordinaryNeedVideoShare
 

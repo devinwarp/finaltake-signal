@@ -1,0 +1,510 @@
+{
+  "project_id": "5f4d9c5f-3d2b-49ea-ba1b-4cba66a475e3",
+  "brief": {
+    "_note": "Presenter: Clara (9c97864c-7fde-4481-ae36-fa34de041d35). Voice: Cala / English_CalmWoman, not Clara's ElevenLabs default. Payoff uses only verified claims 2, 3 and 4: bag reapplication over makeup, non-greasy soft-matte finish, swipe over makeup without clumping or pilling. Clinical water-resistance stays out of the ad.",
+    "idea": "15-20 second UGC-style test ad for Beauty of Joseon Matte Sun Stick, for Gulf summer. Angle: swipe it on again over makeup when you've been sweating. Presenter speaks naturally about sweating through the day and needing to reapply over makeup (paraphrased, never a verbatim creator quote), then shows a quick swipe-on reapplication with the stick. Payoff may use only these verified benefits: sun stick you can slip in your bag to reapply on the go, even over makeup; non-greasy, soft-matte finish; swipes over makeup without clumping or pilling. Do not claim SPF, sebum control, sweat-proof, water-resistant, eye-safe, or any clinical result. Do not name or show any other brand. End card text: 'AI-generated presenter. Concept prototype.'",
+    "configure": {
+      "duration": "15s",
+      "aspect": "9:16",
+      "content_type": "Social ad",
+      "platform": "TikTok",
+      "language": "English",
+      "avatar_id": "9c97864c-7fde-4481-ae36-fa34de041d35",
+      "voice_id": "minimax:English_CalmWoman"
+    },
+    "direct_message": "Plan a 3-4 scene storyboard, about 15 seconds. Presenter is Clara: a woman in her 20s or 30s, natural look, dressed casually for outdoor heat and sun (light summer top). Do not keep the indoor apartment from her reference photo. Setting is bright, hot, and sunny, like a casual TikTok talking-head, not a studio interview. 1) Relatable hook in everyday words: swipe it on again over makeup when you've been sweating. Sweat is the situation, not a product claim. 2) Quick demo of swiping a sun stick back on over makeup, no close-up of packaging text. 3) Payoff uses only these three verified lines, in everyday words: you can slip the stick in your bag and reapply on the go, even over makeup; it leaves a non-greasy, soft-matte finish; and it swipes over makeup without clumping or pilling. Do not say SPF, PA, sebum control, sweat-proof, water-resistant, eye-safe, or any clinical result, and do not invent claims. 4) End card text exactly: AI-generated presenter. Concept prototype. Paraphrase creator speech; never use a creator's verbatim quote. Do not put crew notes on the end card. Do not name or show any other brand."
+  },
+  "project": {
+    "project": {
+      "id": "5f4d9c5f-3d2b-49ea-ba1b-4cba66a475e3",
+      "title": "Matte Sun Stick Reapplication",
+      "status": "storyboarding",
+      "content_type": "Social ad",
+      "brief": {
+        "hook": "Question",
+        "idea": "15-20 second UGC-style test ad for Beauty of Joseon Matte Sun Stick, for Gulf summer. Angle: swipe it on again over makeup when you've been sweating. Presenter speaks naturally about sweating through the day and needing to reapply over makeup (paraphrased, never a verbatim creator quote), then shows a quick swipe-on reapplication with the stick. Payoff may use only these verified benefits: sun stick you can slip in your bag to reapply on the go, even over makeup; non-greasy, soft-matte finish; swipes over makeup without clumping or pilling. Do not claim SPF, sebum control, sweat-proof, water-resistant, eye-safe, or any clinical result. Do not name or show any other brand. End card text: 'AI-generated presenter. Concept prototype.'",
+        "brand": "Beauty of Joseon",
+        "angles": [
+          "CU",
+          "MS",
+          "34",
+          "OTS"
+        ],
+        "aspect": "9:16",
+        "avatar": "9c97864c-7fde-4481-ae36-fa34de041d35",
+        "format": "UGC",
+        "product": "Beauty of Joseon Matte Sun Stick",
+        "answered": [
+          "presenter",
+          "brand",
+          "product"
+        ],
+        "duration": "15s",
+        "language": "en",
+        "platform": "TikTok",
+        "animeStyle": "Anime / cel",
+        "background": "",
+        "visualStyle": "Flat vector",
+        "visualMedium": "Real-life"
+      },
+      "voice_id": "minimax:English_CalmWoman",
+      "language": "en",
+      "format": {
+        "aspect": "9:16",
+        "platform": "TikTok",
+        "resolution": "1080p"
+      },
+      "storyboard": {
+        "world": "A sunny urban rooftop terrace or open courtyard at midday, bright hard sunlight, pale concrete and light stone surfaces bouncing warm light everywhere.",
+        "format": {
+          "aspect": "9:16",
+          "platform": "TikTok",
+          "resolution": "1080p"
+        },
+        "scenes": [
+          {
+            "id": "8cbce7cf-3b32-459f-b5fe-3a54016f35e2",
+            "kind": "avatar",
+            "shot": {
+              "fov": "medium",
+              "angle": "front"
+            },
+            "script": "Okay be honest, who else has been sweating their makeup off all day?",
+            "captions": true,
+            "duration_s": 3,
+            "subject_ids": [
+              "presenter"
+            ],
+            "transition_after": "cut"
+          },
+          {
+            "id": "cdd23fb5-51ef-4d04-92ec-e3d4c166fd04",
+            "kind": "broll",
+            "shot": {
+              "fov": "medium",
+              "angle": "three_quarter_left"
+            },
+            "script": "This is the part I actually swipe it right back on over everything,",
+            "captions": true,
+            "duration_s": 3,
+            "subject_ids": [
+              "sun_stick"
+            ],
+            "broll_prompt": "Close on a right hand holding a pale rectangular sun stick with a calligraphy mark on its label, twist-up balm exposed, swiping once across the back of the other hand, leaving a soft-matte, non-shiny finish with no sheen or glow, no face visible, shallow depth of field, any signage out of focus and unreadable",
+            "transition_after": "cut"
+          },
+          {
+            "id": "60bd891e-c880-422e-8e99-2bf6c5876412",
+            "kind": "avatar",
+            "shot": {
+              "fov": "close_up",
+              "angle": "three_quarter_right"
+            },
+            "script": "and it doesn't clump or pill, it just leaves this soft, non-greasy finish,",
+            "captions": true,
+            "overlays": [
+              {
+                "kind": "graphic",
+                "transform": {
+                  "x": 0.12,
+                  "y": 0.18,
+                  "width": 0.76,
+                  "height": 0.5
+                },
+                "motion_graphic": {
+                  "props": {
+                    "items": [
+                      "Swipes over makeup, no clumping",
+                      "No pilling, ever",
+                      "Soft, non-greasy finish"
+                    ],
+                    "title": "Reapply, no reset",
+                    "kicker": "Why it works"
+                  },
+                  "template": "feature_list"
+                }
+              }
+            ],
+            "duration_s": 3,
+            "subject_ids": [
+              "presenter"
+            ],
+            "transition_after": "cut"
+          },
+          {
+            "id": "b128e474-5480-42d5-8262-a66d47a726ed",
+            "kind": "avatar",
+            "shot": {
+              "fov": "wide",
+              "angle": "front"
+            },
+            "script": "so it just lives in my bag now, for whenever I need it!",
+            "captions": true,
+            "overlays": [
+              {
+                "kind": "text",
+                "text": "AI-generated presenter. Concept prototype.",
+                "transform": {
+                  "x": 0.08,
+                  "y": 0.78,
+                  "width": 0.84,
+                  "height": 0.1
+                }
+              },
+              {
+                "kind": "logo",
+                "transform": {
+                  "x": 0.8,
+                  "y": 0.05,
+                  "width": 0.15,
+                  "height": 0.1
+                }
+              }
+            ],
+            "duration_s": 6,
+            "camera_move": "push_in",
+            "subject_ids": [
+              "presenter"
+            ],
+            "transition_after": "cut"
+          }
+        ],
+        "language": "en",
+        "subjects": [
+          {
+            "id": "presenter",
+            "name": "Clara",
+            "canonical": "Clara stands in bright outdoor sun, casual light summer top, holding a small stick product in her right hand, speaking directly to camera."
+          },
+          {
+            "id": "sun_stick",
+            "name": "Sun Stick",
+            "canonical": "A matte cylindrical stick, about 8cm tall and 2cm wide, fits easily in one hand, cap stays on or off but never shown open on a table, no visible text legible."
+          },
+          {
+            "id": "bag",
+            "name": "Small Bag",
+            "canonical": "A small canvas or straw tote bag, about 30cm wide, sits on Clara's shoulder or is glimpsed at frame edge, used to show the stick slipping inside."
+          }
+        ]
+      },
+      "final_video_url": "https://etrdnfqotaddhuacyyrg.supabase.co/storage/v1/object/public/generated-videos/studio/5f4d9c5f-3d2b-49ea-ba1b-4cba66a475e3/bd51ddda-675b-4ee9-9c4c-65aa1b2363fa_take_8fe116c07d.mp4",
+      "created_at": "2026-09-27T05:03:04.496578+00:00",
+      "updated_at": "2026-09-27T05:46:16.471+00:00"
+    },
+    "assets": [
+      {
+        "id": "dfcf4585-5f32-44f9-954d-f87d9a89acf7",
+        "kind": "audio",
+        "status": "completed",
+        "url": "https://etrdnfqotaddhuacyyrg.supabase.co/storage/v1/object/public/audio-files/72894258-7cdb-4300-98f6-def4f0e76e9d/5f4d9c5f-3d2b-49ea-ba1b-4cba66a475e3/studio/5f4d9c5f-3d2b-49ea-ba1b-4cba66a475e3/narration/dfcf4585-5f32-44f9-954d-f87d9a89acf7.wav",
+        "scene_id": "41283749-de3f-4515-bdd7-88e6153d5bf1",
+        "stage": "narration",
+        "error": null,
+        "permanent": false,
+        "attempts": 0,
+        "updated_at": "2026-09-27T05:05:05.273+00:00"
+      },
+      {
+        "id": "32481d93-805d-44a5-99af-08f91cecbdc2",
+        "kind": "audio",
+        "status": "completed",
+        "url": "https://etrdnfqotaddhuacyyrg.supabase.co/storage/v1/object/public/audio-files/72894258-7cdb-4300-98f6-def4f0e76e9d/5f4d9c5f-3d2b-49ea-ba1b-4cba66a475e3/studio/5f4d9c5f-3d2b-49ea-ba1b-4cba66a475e3/narration/32481d93-805d-44a5-99af-08f91cecbdc2.wav",
+        "scene_id": "988da6eb-0584-4f8b-82fa-89e2bfee6117",
+        "stage": "narration",
+        "error": null,
+        "permanent": false,
+        "attempts": 0,
+        "updated_at": "2026-09-27T05:05:09.476+00:00"
+      },
+      {
+        "id": "391300ec-d352-4565-bfba-18a2be3a4aa9",
+        "kind": "audio",
+        "status": "completed",
+        "url": "https://etrdnfqotaddhuacyyrg.supabase.co/storage/v1/object/public/audio-files/72894258-7cdb-4300-98f6-def4f0e76e9d/5f4d9c5f-3d2b-49ea-ba1b-4cba66a475e3/studio/5f4d9c5f-3d2b-49ea-ba1b-4cba66a475e3/narration/391300ec-d352-4565-bfba-18a2be3a4aa9.wav",
+        "scene_id": "7c55f5e2-01e6-4f17-979f-6abaf78fd866",
+        "stage": "narration",
+        "error": null,
+        "permanent": false,
+        "attempts": 0,
+        "updated_at": "2026-09-27T05:05:35.623+00:00"
+      },
+      {
+        "id": "075d8541-ce52-4030-a6e9-0e5680063bca",
+        "kind": "audio",
+        "status": "completed",
+        "url": "https://etrdnfqotaddhuacyyrg.supabase.co/storage/v1/object/public/audio-files/72894258-7cdb-4300-98f6-def4f0e76e9d/5f4d9c5f-3d2b-49ea-ba1b-4cba66a475e3/studio/5f4d9c5f-3d2b-49ea-ba1b-4cba66a475e3/narration/075d8541-ce52-4030-a6e9-0e5680063bca.wav",
+        "scene_id": "df5c1d71-fba8-405f-9e10-949297013fcc",
+        "stage": "narration",
+        "error": null,
+        "permanent": false,
+        "attempts": 0,
+        "updated_at": "2026-09-27T05:05:39.844+00:00"
+      },
+      {
+        "id": "6124de63-8322-49ab-a87a-c3062e46e914",
+        "kind": "audio",
+        "status": "completed",
+        "url": "https://etrdnfqotaddhuacyyrg.supabase.co/storage/v1/object/public/audio-files/studio/5f4d9c5f-3d2b-49ea-ba1b-4cba66a475e3/master/1790485540496/master.wav",
+        "scene_id": null,
+        "stage": "master",
+        "error": null,
+        "permanent": false,
+        "attempts": 1,
+        "updated_at": "2026-09-27T05:08:42.016+00:00"
+      },
+      {
+        "id": "6c2858f1-ff52-479a-b2c5-2f7765ea85cb",
+        "kind": "avatar_shot",
+        "status": "completed",
+        "url": "https://etrdnfqotaddhuacyyrg.supabase.co/storage/v1/object/public/generated-videos/studio/5f4d9c5f-3d2b-49ea-ba1b-4cba66a475e3/normalized/head-350340.jpg",
+        "scene_id": null,
+        "stage": null,
+        "error": null,
+        "permanent": false,
+        "attempts": 0,
+        "updated_at": "2026-09-27T05:44:43.748+00:00"
+      },
+      {
+        "id": "59ac4842-a4f9-4804-85f8-8e9740bdec14",
+        "kind": "avatar_shot",
+        "status": "completed",
+        "url": "https://etrdnfqotaddhuacyyrg.supabase.co/storage/v1/object/public/generated-videos/studio/c31cf912-bac2-453c-ac41-50a96d297a46/e0834280-802c-4537-bccc-a2b8d762e631.jpg",
+        "scene_id": null,
+        "stage": null,
+        "error": null,
+        "permanent": false,
+        "attempts": 0,
+        "updated_at": "2026-09-27T05:24:06.717213+00:00"
+      },
+      {
+        "id": "b3d56b79-5957-4036-bdf5-beb936685d9a",
+        "kind": "avatar_shot",
+        "status": "completed",
+        "url": "https://etrdnfqotaddhuacyyrg.supabase.co/storage/v1/object/public/generated-videos/studio/c31cf912-bac2-453c-ac41-50a96d297a46/aa4486ec-a39d-45f2-bb27-e3b147f78560.jpg",
+        "scene_id": null,
+        "stage": null,
+        "error": null,
+        "permanent": false,
+        "attempts": 0,
+        "updated_at": "2026-09-27T05:24:07.705465+00:00"
+      },
+      {
+        "id": "08334b9f-93bb-4abd-b14c-a82c0fdb09e0",
+        "kind": "avatar_shot",
+        "status": "completed",
+        "url": "https://etrdnfqotaddhuacyyrg.supabase.co/storage/v1/object/public/generated-videos/studio/c31cf912-bac2-453c-ac41-50a96d297a46/fbaa40d7-0557-41f5-a5d2-e96254d365c8.jpg",
+        "scene_id": null,
+        "stage": null,
+        "error": null,
+        "permanent": false,
+        "attempts": 0,
+        "updated_at": "2026-09-27T05:24:08.719764+00:00"
+      },
+      {
+        "id": "e4a0a567-f8a3-45e4-858a-3a4562c8e2b5",
+        "kind": "avatar_shot",
+        "status": "completed",
+        "url": "https://etrdnfqotaddhuacyyrg.supabase.co/storage/v1/object/public/generated-videos/studio/c31cf912-bac2-453c-ac41-50a96d297a46/9f0fafcc-c99e-4438-b9d5-472bdc46ea0b.jpg",
+        "scene_id": null,
+        "stage": null,
+        "error": null,
+        "permanent": false,
+        "attempts": 0,
+        "updated_at": "2026-09-27T05:24:09.679534+00:00"
+      },
+      {
+        "id": "5ec6e766-b5b1-45be-ad37-905231901056",
+        "kind": "avatar_shot",
+        "status": "completed",
+        "url": "https://etrdnfqotaddhuacyyrg.supabase.co/storage/v1/object/public/generated-videos/studio/c31cf912-bac2-453c-ac41-50a96d297a46/4d258deb-c675-43fc-8b83-96e18cc7141b.jpg",
+        "scene_id": null,
+        "stage": null,
+        "error": null,
+        "permanent": false,
+        "attempts": 0,
+        "updated_at": "2026-09-27T05:24:10.566559+00:00"
+      },
+      {
+        "id": "a5204e48-a322-4c9b-bcaa-8ff1b89d5d7c",
+        "kind": "avatar_shot",
+        "status": "completed",
+        "url": "https://etrdnfqotaddhuacyyrg.supabase.co/storage/v1/object/public/generated-videos/studio/5f4d9c5f-3d2b-49ea-ba1b-4cba66a475e3/a5204e48-a322-4c9b-bcaa-8ff1b89d5d7c.jpg",
+        "scene_id": null,
+        "stage": null,
+        "error": null,
+        "permanent": false,
+        "attempts": 0,
+        "updated_at": "2026-09-27T05:25:12.879+00:00"
+      },
+      {
+        "id": "39753c17-76d3-46bb-8aa2-381543647a06",
+        "kind": "main_video",
+        "status": "completed",
+        "url": "https://etrdnfqotaddhuacyyrg.supabase.co/storage/v1/object/public/generated-videos/studio/5f4d9c5f-3d2b-49ea-ba1b-4cba66a475e3/39753c17-76d3-46bb-8aa2-381543647a06_take_206bbbac94.mp4",
+        "scene_id": "41283749-de3f-4515-bdd7-88e6153d5bf1",
+        "stage": "submitting",
+        "error": null,
+        "permanent": false,
+        "attempts": 0,
+        "updated_at": "2026-09-27T05:28:01.346281+00:00"
+      },
+      {
+        "id": "6768d255-932a-4741-8f4d-21146945663f",
+        "kind": "broll_video",
+        "status": "completed",
+        "url": "https://etrdnfqotaddhuacyyrg.supabase.co/storage/v1/object/public/generated-videos/studio/5f4d9c5f-3d2b-49ea-ba1b-4cba66a475e3/6768d255-932a-4741-8f4d-21146945663f_take_79c50cb2c3.mp4",
+        "scene_id": "988da6eb-0584-4f8b-82fa-89e2bfee6117",
+        "stage": "generating",
+        "error": null,
+        "permanent": false,
+        "attempts": 0,
+        "updated_at": "2026-09-27T05:30:19.47882+00:00"
+      },
+      {
+        "id": "53b6f1f7-6504-455d-9f89-def61f8645b1",
+        "kind": "main_video",
+        "status": "completed",
+        "url": "https://etrdnfqotaddhuacyyrg.supabase.co/storage/v1/object/public/generated-videos/studio/5f4d9c5f-3d2b-49ea-ba1b-4cba66a475e3/53b6f1f7-6504-455d-9f89-def61f8645b1_take_761f533c6f.mp4",
+        "scene_id": "7c55f5e2-01e6-4f17-979f-6abaf78fd866",
+        "stage": "submitting",
+        "error": null,
+        "permanent": false,
+        "attempts": 0,
+        "updated_at": "2026-09-27T05:28:08.624079+00:00"
+      },
+      {
+        "id": "de5ced13-9912-453c-b584-e0b6f763c2a9",
+        "kind": "main_video",
+        "status": "completed",
+        "url": "https://etrdnfqotaddhuacyyrg.supabase.co/storage/v1/object/public/generated-videos/studio/5f4d9c5f-3d2b-49ea-ba1b-4cba66a475e3/de5ced13-9912-453c-b584-e0b6f763c2a9_take_7ff088483a.mp4",
+        "scene_id": "df5c1d71-fba8-405f-9e10-949297013fcc",
+        "stage": "submitting",
+        "error": null,
+        "permanent": false,
+        "attempts": 0,
+        "updated_at": "2026-09-27T05:27:55.956071+00:00"
+      },
+      {
+        "id": "0ad3ba94-e11b-4fba-ba34-bcc1a58ff37c",
+        "kind": "broll_video",
+        "status": "completed",
+        "url": "https://etrdnfqotaddhuacyyrg.supabase.co/storage/v1/object/public/generated-videos/studio/5f4d9c5f-3d2b-49ea-ba1b-4cba66a475e3/0ad3ba94-e11b-4fba-ba34-bcc1a58ff37c_take_3befbb8ebc.mp4",
+        "scene_id": "7c55f5e2-01e6-4f17-979f-6abaf78fd866",
+        "stage": "rendering",
+        "error": null,
+        "permanent": false,
+        "attempts": 0,
+        "updated_at": "2026-09-27T05:26:09.150635+00:00"
+      },
+      {
+        "id": "a0631dad-7ea5-4ae2-8477-76484c74d5b1",
+        "kind": "final",
+        "status": "completed",
+        "url": "https://etrdnfqotaddhuacyyrg.supabase.co/storage/v1/object/public/generated-videos/studio/5f4d9c5f-3d2b-49ea-ba1b-4cba66a475e3/a0631dad-7ea5-4ae2-8477-76484c74d5b1_take_25ef4a1c93.mp4",
+        "scene_id": null,
+        "stage": "concat",
+        "error": null,
+        "permanent": false,
+        "attempts": 0,
+        "updated_at": "2026-09-27T05:31:34.732592+00:00"
+      },
+      {
+        "id": "42b7e4bf-baed-40df-b32e-a5b562f98883",
+        "kind": "final",
+        "status": "completed",
+        "url": "https://etrdnfqotaddhuacyyrg.supabase.co/storage/v1/object/public/generated-videos/studio/5f4d9c5f-3d2b-49ea-ba1b-4cba66a475e3/42b7e4bf-baed-40df-b32e-a5b562f98883_take_2a942b87f2.mp4",
+        "scene_id": null,
+        "stage": "caption",
+        "error": null,
+        "permanent": false,
+        "attempts": 0,
+        "updated_at": "2026-09-27T05:32:32.782178+00:00"
+      },
+      {
+        "id": "0fb18ae2-8317-4b69-a6cd-e0a1c8139959",
+        "kind": "final",
+        "status": "completed",
+        "url": "https://etrdnfqotaddhuacyyrg.supabase.co/storage/v1/object/public/generated-videos/studio/5f4d9c5f-3d2b-49ea-ba1b-4cba66a475e3/0fb18ae2-8317-4b69-a6cd-e0a1c8139959_take_c4e1bdd305.mp4",
+        "scene_id": null,
+        "stage": "concat",
+        "error": null,
+        "permanent": false,
+        "attempts": 0,
+        "updated_at": "2026-09-27T05:44:38.880146+00:00"
+      },
+      {
+        "id": "bd51ddda-675b-4ee9-9c4c-65aa1b2363fa",
+        "kind": "final",
+        "status": "completed",
+        "url": "https://etrdnfqotaddhuacyyrg.supabase.co/storage/v1/object/public/generated-videos/studio/5f4d9c5f-3d2b-49ea-ba1b-4cba66a475e3/bd51ddda-675b-4ee9-9c4c-65aa1b2363fa_take_8fe116c07d.mp4",
+        "scene_id": null,
+        "stage": "caption",
+        "error": null,
+        "permanent": false,
+        "attempts": 0,
+        "updated_at": "2026-09-27T05:45:21.012509+00:00"
+      },
+      {
+        "id": "604de8a1-deca-4285-bd16-9445df413644",
+        "kind": "avatar_shot",
+        "status": "completed",
+        "url": "https://etrdnfqotaddhuacyyrg.supabase.co/storage/v1/object/public/generated-videos/studio/5f4d9c5f-3d2b-49ea-ba1b-4cba66a475e3/normalized/head-close_up-246004.jpg",
+        "scene_id": null,
+        "stage": null,
+        "error": null,
+        "permanent": false,
+        "attempts": 0,
+        "updated_at": "2026-09-27T05:44:50.65817+00:00"
+      },
+      {
+        "id": "317c9363-f51e-4d17-a7e1-0d391a91e3e7",
+        "kind": "audio",
+        "status": "completed",
+        "url": "https://etrdnfqotaddhuacyyrg.supabase.co/storage/v1/object/public/audio-files/72894258-7cdb-4300-98f6-def4f0e76e9d/5f4d9c5f-3d2b-49ea-ba1b-4cba66a475e3/studio/5f4d9c5f-3d2b-49ea-ba1b-4cba66a475e3/narration/317c9363-f51e-4d17-a7e1-0d391a91e3e7.wav",
+        "scene_id": "8cbce7cf-3b32-459f-b5fe-3a54016f35e2",
+        "stage": "narration",
+        "error": null,
+        "permanent": false,
+        "attempts": 0,
+        "updated_at": "2026-09-27T05:46:23.954+00:00"
+      },
+      {
+        "id": "8f88e54d-a32a-4537-ac73-205b8f93f0b9",
+        "kind": "audio",
+        "status": "completed",
+        "url": "https://etrdnfqotaddhuacyyrg.supabase.co/storage/v1/object/public/audio-files/72894258-7cdb-4300-98f6-def4f0e76e9d/5f4d9c5f-3d2b-49ea-ba1b-4cba66a475e3/studio/5f4d9c5f-3d2b-49ea-ba1b-4cba66a475e3/narration/8f88e54d-a32a-4537-ac73-205b8f93f0b9.wav",
+        "scene_id": "cdd23fb5-51ef-4d04-92ec-e3d4c166fd04",
+        "stage": "narration",
+        "error": null,
+        "permanent": false,
+        "attempts": 0,
+        "updated_at": "2026-09-27T05:46:26.685+00:00"
+      },
+      {
+        "id": "426f370e-0d01-49b1-b953-5f35f4436b2b",
+        "kind": "audio",
+        "status": "pending",
+        "url": null,
+        "scene_id": "60bd891e-c880-422e-8e99-2bf6c5876412",
+        "stage": "narration",
+        "error": null,
+        "permanent": false,
+        "attempts": 0,
+        "updated_at": "2026-09-27T05:46:20.288134+00:00"
+      },
+      {
+        "id": "71ab44a5-2758-4487-bb29-c376cf925ae6",
+        "kind": "audio",
+        "status": "pending",
+        "url": null,
+        "scene_id": "b128e474-5480-42d5-8262-a66d47a726ed",
+        "stage": "narration",
+        "error": null,
+        "permanent": false,
+        "attempts": 0,
+        "updated_at": "2026-09-27T05:46:20.509465+00:00"
+      }
+    ]
+  }
+}

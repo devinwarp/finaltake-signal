@@ -1,0 +1,23 @@
+Unzip the attached file into the project root and keep data/cache/ and public/.
+
+I want to build FinalTake Signal, a small product for agency strategists. Oriane already watches what creators say and show. I want to turn one search into a need, the videos that prove it, a creator brief, and a test ad.
+
+Search has to be live. Every time someone hits run, the server calls Oriane. The JSON in data/cache/ is only a backup if that call fails, and the screen has to say it came from the backup. A successful search never reads those files.
+
+Use the Oriane API docs from today. The key is the secret ORIANE_API_KEY, and it stays on the server. If you can't find the real endpoint, ask me before you write the call.
+
+One search fires four queries together: the brand, a competitor, a control brand, and the category. Start the form filled in with Beauty of Joseon, Neutrogena, Nivea Sun + Skin1004, and sunscreen in heat, and let me change them. Each query is TikTok and Instagram, last 90 days, spoken words matched exactly, plus a caption match. I need the transcript, video URL, handle, followers, date, views, language, and caption. Cap each query at 200 videos and show what's loading.
+
+Clean the rows in code, mark which query they came from, and drop duplicates. Then find the needs from the transcripts in code. A video only counts if someone actually says sunscreen, SPF, or sunblock. Group the complaint lines into needs. The hero need is the one raised by the most separate creators. Count videos, creators, total views, and median views yourself. Also show how often it comes up in the heat query versus ordinary sunscreen talk, and the share for the brand, the competitor, and the control, with the denominators. Call it a category-wide need. Show competitor names as Brand B unless I flip a private switch.
+
+From there: a need board, then the videos behind the need, then I tick one product claim, then a printable creator brief and a test ad.
+
+On the evidence screen, link out to the real videos. Highlight the exact sentence, and show the time, date, views, handle, and language. Quotes can be Arabic or any other language, so set dir="auto".
+
+The claims I can tick are the verified ones in data/cache/benefits.json. Skip any claim marked use_in_ad false, and show the never_claim list. The brief stays locked until I tick one. The brief paraphrases. The exact creator sentences stay on the evidence screen.
+
+The test ad is public/hero-ad.mp4, and it only plays for the sunscreen reapply-in-heat need. Label it: AI-generated presenter, concept prototype, not the campaign. For any other search, show the brief and say this filmed test is for that sunscreen angle. Don't generate a new video inside the app.
+
+Design it like a printed strategy brief: cream background, one serif for the headlines, lots of space. Credit "Powered by Oriane".
+
+Next.js, TypeScript, Tailwind. No database. Publish a public URL that opens on a phone.
