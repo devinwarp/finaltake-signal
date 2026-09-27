@@ -1,3 +1,3 @@
-- [Oriane REST authentication](oriane-rest-auth.md) — public API spec omits its auth scheme; verify the search header with a real credential before claiming live requests work.
+- [Oriane REST authentication](oriane-rest-auth.md) — credential-backed live search confirmed Bearer auth; preserve explicit partial labels at the 200-post cap.
 - [GitHub connector publishing](github-connector-publishing.md) — connector OAuth authorizes API writes, not local git push; empty repos need an initial contents commit before Git Data uploads.
 - [Claim status colors](claim-status-colors.md) — keep owner-approved claims visually distinct from brand-verified demo claims in the light marketing palette.

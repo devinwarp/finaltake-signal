@@ -13,6 +13,12 @@ export interface SignalQueryMetrics {
   query: string;
   /** @minimum 0 */
   fetchedVideos: number;
+  /**
+     * @minimum 0
+     * @nullable
+     */
+  reportedTotalCount: number | null;
+  isPartial: boolean;
   /** @minimum 0 */
   relevantVideos: number;
   /** @minimum 0 */

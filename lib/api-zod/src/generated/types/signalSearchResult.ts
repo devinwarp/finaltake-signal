@@ -7,6 +7,7 @@
  */
 import type { SignalNeed } from './signalNeed';
 import type { SignalQueryMetrics } from './signalQueryMetrics';
+import type { SignalSampleWindow } from './signalSampleWindow';
 import type { SignalSearchResultSource } from './signalSearchResultSource';
 import type { SignalVideo } from './signalVideo';
 
@@ -14,6 +15,7 @@ export interface SignalSearchResult {
   source: SignalSearchResultSource;
   /** @nullable */
   fallbackReason: string | null;
+  sampleWindow: SignalSampleWindow;
   queries: SignalQueryMetrics[];
   videos: SignalVideo[];
   needs: SignalNeed[];

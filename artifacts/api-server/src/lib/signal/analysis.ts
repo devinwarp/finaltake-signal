@@ -1,4 +1,4 @@
-import type { QueryId, RawVideo, SearchGroups, SearchInput } from "./oriane";
+import type { QueryId, RawVideo, SampleWindow, SearchGroups, SearchInput } from "./oriane";
 import { QUERY_IDS } from "./oriane";
 
 interface Evidence {
@@ -28,6 +28,8 @@ interface QueryMetrics {
   label: string;
   query: string;
   fetchedVideos: number;
+  reportedTotalCount: number | null;
+  isPartial: boolean;
   relevantVideos: number;
   needVideos: number;
   needCreators: number;
@@ -300,18 +302,22 @@ function countCreators(videos: SignalVideo[]): number {
 function queryMetrics(
   id: QueryId,
   input: SearchInput,
-  fetchedVideos: number,
+  groups: SearchGroups,
   videos: SignalVideo[],
   needId: string | null,
 ): QueryMetrics {
   const query = id === "heat" ? input.category : input[id];
   const label = id === "competitor" ? "Brand B" : id === "control" ? "Control brands" :
     id === "heat" ? "Category" : input.brand;
+  const diagnostics = groups.diagnostics?.[id];
   const relevant = videos.filter((video) => video.sourceQueries.includes(id));
   const needVideos = relevant.filter((video) => needId && video.needIds.includes(needId));
   return {
     id, label, query: id === "competitor" ? "Brand B" : id === "control" ? "Control brands" : query,
-    fetchedVideos, relevantVideos: relevant.length, needVideos: needVideos.length,
+    fetchedVideos: groups[id].length,
+    reportedTotalCount: diagnostics?.reportedTotalCount ?? null,
+    isPartial: diagnostics?.isPartial ?? false,
+    relevantVideos: relevant.length, needVideos: needVideos.length,
     needCreators: countCreators(needVideos),
     needVideoShare: relevant.length ? needVideos.length / relevant.length : 0,
     needCreatorShare: countCreators(relevant) ? countCreators(needVideos) / countCreators(relevant) : 0,
@@ -361,20 +367,20 @@ export function analyzeSignal(groups: SearchGroups, input: SearchInput, source: 
       creatorCount: countCreators(evidence),
       totalViews: evidence.reduce((sum, video) => sum + (video.views ?? 0), 0),
       medianViews: median(evidence.map((video) => video.views).filter((count): count is number => count !== null)),
-      queryMetrics: QUERY_IDS.map((queryId) => queryMetrics(queryId, input, groups[queryId].length, videos, id)),
+      queryMetrics: QUERY_IDS.map((queryId) => queryMetrics(queryId, input, groups, videos, id)),
     };
   }).filter((need) => need.videoCount > 0)
     .sort((a, b) => b.creatorCount - a.creatorCount || b.videoCount - a.videoCount);
 
   const heroNeedId = needs[0]?.id ?? null;
-  const queries = QUERY_IDS.map((id) => queryMetrics(id, input, groups[id].length, videos, heroNeedId));
+  const queries = QUERY_IDS.map((id) => queryMetrics(id, input, groups, videos, heroNeedId));
   const heat = queries.find((item) => item.id === "heat")!;
   const ordinary = queries.filter((item) => item.id !== "heat");
   const ordinaryDenominator = ordinary.reduce((sum, item) => sum + item.relevantVideos, 0);
   const ordinaryNumerator = ordinary.reduce((sum, item) => sum + item.needVideos, 0);
 
   return {
-    source, fallbackReason, queries, videos, needs, heroNeedId,
+    source, fallbackReason, sampleWindow: groups.sampleWindow ?? null, queries, videos, needs, heroNeedId,
     totalRelevantVideos: videos.length,
     heatNeedVideoShare: heat.needVideoShare,
     ordinaryNeedVideoShare: ordinaryDenominator ? ordinaryNumerator / ordinaryDenominator : 0,

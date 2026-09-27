@@ -14,6 +14,7 @@ export * from './signalNeed';
 export * from './signalPlatform';
 export * from './signalQueryId';
 export * from './signalQueryMetrics';
+export * from './signalSampleWindow';
 export * from './signalSearchInput';
 export * from './signalSearchResult';
 export * from './signalSearchResultSource';

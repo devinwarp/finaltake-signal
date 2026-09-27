@@ -52,7 +52,10 @@ export const SearchSignalBody = zod.object({
   "category": zod.string().min(1).max(searchSignalBodyCategoryMax)
 })
 
+
 export const searchSignalResponseQueriesItemFetchedVideosMin = 0;
+
+export const searchSignalResponseQueriesItemReportedTotalCountMin = 0;
 
 export const searchSignalResponseQueriesItemRelevantVideosMin = 0;
 
@@ -80,6 +83,8 @@ export const searchSignalResponseNeedsItemMedianViewsMin = 0;
 
 export const searchSignalResponseNeedsItemQueryMetricsItemFetchedVideosMin = 0;
 
+export const searchSignalResponseNeedsItemQueryMetricsItemReportedTotalCountMin = 0;
+
 export const searchSignalResponseNeedsItemQueryMetricsItemRelevantVideosMin = 0;
 
 export const searchSignalResponseNeedsItemQueryMetricsItemNeedVideosMin = 0;
@@ -105,11 +110,18 @@ export const searchSignalResponseOrdinaryNeedVideoShareMax = 1;
 export const SearchSignalResponse = zod.object({
   "source": zod.enum(['live', 'backup']),
   "fallbackReason": zod.string().nullable(),
+  "sampleWindow": zod.object({
+  "startAt": zod.coerce.date(),
+  "endAt": zod.coerce.date(),
+  "days": zod.number().int().min(1)
+}),
   "queries": zod.array(zod.object({
   "id": zod.enum(['brand', 'competitor', 'control', 'heat']),
   "label": zod.string(),
   "query": zod.string(),
   "fetchedVideos": zod.number().int().min(searchSignalResponseQueriesItemFetchedVideosMin),
+  "reportedTotalCount": zod.number().int().min(searchSignalResponseQueriesItemReportedTotalCountMin).nullable(),
+  "isPartial": zod.boolean(),
   "relevantVideos": zod.number().int().min(searchSignalResponseQueriesItemRelevantVideosMin),
   "needVideos": zod.number().int().min(searchSignalResponseQueriesItemNeedVideosMin),
   "needCreators": zod.number().int().min(searchSignalResponseQueriesItemNeedCreatorsMin),
@@ -145,6 +157,8 @@ export const SearchSignalResponse = zod.object({
   "label": zod.string(),
   "query": zod.string(),
   "fetchedVideos": zod.number().int().min(searchSignalResponseNeedsItemQueryMetricsItemFetchedVideosMin),
+  "reportedTotalCount": zod.number().int().min(searchSignalResponseNeedsItemQueryMetricsItemReportedTotalCountMin).nullable(),
+  "isPartial": zod.boolean(),
   "relevantVideos": zod.number().int().min(searchSignalResponseNeedsItemQueryMetricsItemRelevantVideosMin),
   "needVideos": zod.number().int().min(searchSignalResponseNeedsItemQueryMetricsItemNeedVideosMin),
   "needCreators": zod.number().int().min(searchSignalResponseNeedsItemQueryMetricsItemNeedCreatorsMin),

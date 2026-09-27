@@ -74,6 +74,12 @@ export interface SignalQueryMetrics {
   query: string;
   /** @minimum 0 */
   fetchedVideos: number;
+  /**
+     * @minimum 0
+     * @nullable
+     */
+  reportedTotalCount: number | null;
+  isPartial: boolean;
   /** @minimum 0 */
   relevantVideos: number;
   /** @minimum 0 */
@@ -90,6 +96,13 @@ export interface SignalQueryMetrics {
      * @maximum 1
      */
   needCreatorShare: number;
+}
+
+export interface SignalSampleWindow {
+  startAt: string;
+  endAt: string;
+  /** @minimum 1 */
+  days: number;
 }
 
 export interface SignalVideo {
@@ -148,6 +161,7 @@ export interface SignalSearchResult {
   source: SignalSearchResultSource;
   /** @nullable */
   fallbackReason: string | null;
+  sampleWindow: SignalSampleWindow;
   queries: SignalQueryMetrics[];
   videos: SignalVideo[];
   needs: SignalNeed[];

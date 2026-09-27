@@ -53,7 +53,7 @@ async function backupGroups(): Promise<SearchGroups> {
   const subjectFor: Record<QueryId, string> = {
     brand: "brand", competitor: "competitor", control: "control", heat: "category",
   };
-  return Object.fromEntries(QUERY_IDS.map((id) => [
+  const groups = Object.fromEntries(QUERY_IDS.map((id) => [
     id,
     rows.filter((row) => {
       if (row.subject === subjectFor[id]) return true;
@@ -61,7 +61,15 @@ async function backupGroups(): Promise<SearchGroups> {
         (subject) => typeof subject === "string" && subject.startsWith(`${subjectFor[id]}:`),
       );
     }).sort((a, b) => String(b.date ?? "").localeCompare(String(a.date ?? ""))).slice(0, 200),
-  ])) as SearchGroups;
+  ])) as Record<QueryId, RawVideo[]>;
+  return {
+    ...groups,
+    sampleWindow: {
+      startAt: "2026-06-27T00:00:00.000Z",
+      endAt: "2026-09-27T23:59:59.999Z",
+      days: 92,
+    },
+  };
 }
 
 router.post("/signal/search", async (req, res): Promise<void> => {

@@ -142,6 +142,11 @@ components:
         fetchedVideos:
           type: integer
           minimum: 0
+        reportedTotalCount:
+          type: ["integer", "null"]
+          minimum: 0
+        isPartial:
+          type: boolean
         relevantVideos:
           type: integer
           minimum: 0
@@ -164,11 +169,26 @@ components:
         - label
         - query
         - fetchedVideos
+        - reportedTotalCount
+        - isPartial
         - relevantVideos
         - needVideos
         - needCreators
         - needVideoShare
         - needCreatorShare
+    SignalSampleWindow:
+      type: object
+      properties:
+        startAt:
+          type: string
+          format: date-time
+        endAt:
+          type: string
+          format: date-time
+        days:
+          type: integer
+          minimum: 1
+      required: [startAt, endAt, days]
     SignalVideo:
       type: object
       properties:
@@ -267,6 +287,8 @@ components:
           enum: [live, backup]
         fallbackReason:
           type: ["string", "null"]
+        sampleWindow:
+          $ref: "#/components/schemas/SignalSampleWindow"
         queries:
           type: array
           items:
@@ -295,6 +317,7 @@ components:
       required:
         - source
         - fallbackReason
+        - sampleWindow
         - queries
         - videos
         - needs
