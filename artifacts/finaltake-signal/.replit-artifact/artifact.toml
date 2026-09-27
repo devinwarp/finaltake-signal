@@ -1,0 +1,28 @@
+kind = "web"
+previewPath = "/"
+title = "FinalTake Signal"
+description = "A mobile-ready strategy workspace for agency strategists that turns live creator-video searches into evidence-backed category needs, creator briefs, and test-ad concepts."
+version = "1.0.0"
+id = "artifacts/finaltake-signal"
+router = "path"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 26000
+
+[services.development]
+run = "pnpm --filter @workspace/finaltake-signal run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/finaltake-signal", "run", "build" ]
+serve = "static"
+publicDir = "artifacts/finaltake-signal/dist/public"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "26000"
+BASE_PATH = "/"

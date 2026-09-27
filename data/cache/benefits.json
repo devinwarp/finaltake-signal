@@ -1,0 +1,16 @@
+{
+  "_note": "Only claims printed on the product or the brand's official site. Verify each one, add the source URL and set verified=true. Unverified claims must not reach the brief or the ad.",
+  "product": "Beauty of Joseon Matte Sun Stick: Mugwort + Camelia (SPF50+ PA++++)",
+  "why_this_product": "The hero need is reapplying in heat and sweat; a stick answers that better than the Relief Sun cream. Creators in the evidence already reach for sticks for reapplication.",
+  "owner_check": "Beauty of Joseon is owned by Goodai Global (not L'Oreal, Estee Lauder or LVMH). Confirm in 2 minutes.",
+  "price_uae": "AED 69 (official site, 27 Sep 2026)",
+  "benefits": [
+    { "claim": "SPF50+ PA++++", "source": "https://beautyofjoseon.com/products/matte-sun-stick-mugwort-camelia", "verified": true },
+    { "claim": "Sun stick you can slip in your bag to reapply on the go, even over makeup", "source": "https://beautyofjoseon.com/products/matte-sun-stick-mugwort-camelia", "verified": true },
+    { "claim": "Non-greasy, soft-matte finish", "source": "https://beautyofjoseon.com/products/matte-sun-stick-mugwort-camelia", "verified": true },
+    { "claim": "Swipes over makeup without clumping or pilling", "source": "https://beautyofjoseon.com/products/matte-sun-stick-mugwort-camelia", "verified": true },
+    { "claim": "Sebum control for a shine-free finish", "source": "https://beautyofjoseon.com/products/matte-sun-stick-mugwort-camelia", "verified": true },
+    { "claim": "Clinically tested to be water resistant", "source": "https://beautyofjoseon.com/products/matte-sun-stick-mugwort-camelia", "verified": true, "use_in_ad": false, "note": "Brand-stated clinical claim (Korea Institute of Dermatological Sciences, 10 subjects, two months). Mention in the creator brief only as \"brand states\"; never in the AI test ad." }
+  ],
+  "never_claim": ["sweat-proof", "won't sting eyes / safe for eyes", "any comparison with a named competitor", "any clinical claim in the AI ad"]
+}
