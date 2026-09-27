@@ -1,0 +1,16 @@
+uploads = []
+generated = []
+
+[[outputs]]
+id = "xC31iNQJOZQH2Q5JzBZxi"
+uri = "file://deliverables/beauty-of-joseon-matte-sun-stick-1080.png"
+type = "image"
+title = "Beauty of Joseon Matte Sun Stick Ad — 1080 × 1080 PNG"
+description = "Square social-feed ad with official Beauty of Joseon imagery and a non-greasy, soft-matte message."
+logical_id = "8bd50785-9ac5-4a2d-af31-edb7d6ac14bf"
+content_hash = "sha256:4d2016371c822a5fd6481b1974e6020ca3d2b99d7b8da476a2dda63f8b23ebaa"
+size = 484004
+mtime_ms = 1790503434628
+storage_uri = "gcs://replit-rams-assets-picard/rams/assets/repl:7c81822a-939e-4b91-be96-296e6b8e0fdc/8bd50785-9ac5-4a2d-af31-edb7d6ac14bf/d8dbf329-30ed-4f0b-bc54-058ae52db509"
+storage_version_token = "1790503456462886"
+content_type = "image/png"
